@@ -5,6 +5,8 @@
 <!------------------------
 
 theme by mechanise.tumblr.com
+please don't remove credit
+(c) 2016
 ------------------------>
  
 <title>{Title}</title>
@@ -26,7 +28,14 @@ theme by mechanise.tumblr.com
 <meta name="color:accent" content="#eeeeee">
 <meta name="color:sidelinks" content="#000000">
  
-<meta name="text:bodyfont" content="Source Sans Pro, Helvetica"/>
+<meta name="select:bodyfont" content="Source Sans Pro" title="source sans"/>
+<meta name="select:bodyfont" content="Inconsolata" title="inconsolata"/>
+<meta name="select:bodyfont" content="Helvetica" title="helvetica"/>
+
+<meta name="select:postwidth" content="250px" title="250px"/>
+<meta name="select:postwidth" content="400px" title="400px"/>
+<meta name="select:postwidth" content="500px" title="500px"/>
+<meta name="select:postwidth" content="540px" title="540px"/>
  
 <meta name="text: link 1 title" content="<i class='fa fa-envelope'></i> ask"/>
 <meta name="text: link 1" content="/ask"/>
@@ -55,7 +64,8 @@ theme by mechanise.tumblr.com
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
  <link href='http://fonts.googleapis.com/css?family=Inconsolata:400' rel='stylesheet' type='text/css'>
  
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+ 
  <script type="text/javascript" src="http://static.tumblr.com/bmdsqsc/ogWm7q8w1/lazyload.js"></script>
 <script type="text/javascript" charset="utf-8">
     var $j = jQuery.noConflict();
@@ -70,20 +80,20 @@ theme by mechanise.tumblr.com
         });
     });
 </script>
+
+
  
-<script src="http://static.tumblr.com/rzl30kg/eAxm7a751/jquery.style-my-tooltips.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
  
 <script>
-    (function($){
+(function($){
     $(document).ready(function(){
-    $("[title]").style_my_tooltips({
-    tip_follows_cursor:true,
-    tip_delay_time:200,
-    tip_fade_speed:300
-    }
-    );
+        $(document).tooltip({
+            track:true
+        });
     });
-    })(jQuery);
+})(jQuery);
+
 </script>
  
  
@@ -148,7 +158,7 @@ theme by mechanise.tumblr.com
     background-color: #000; }
 ::-webkit-scrollbar-track-piece { height: 30px;  width: 30px; }
  
-/*hover text*/
+/*tooltip style*/
 
 .ui-tooltip {  
     position:Absolute;
@@ -170,7 +180,7 @@ body {
     background:url({image:bg image});
     background-size: cover;
     background-attachment: fixed;
-    font-family: {text:bodyfont};
+    font-family: {select:bodyfont};
     letter-spacing: 1px;
     font-size: 12px;
     margin: 0px;
@@ -259,7 +269,7 @@ max-width:100%;
 }
  
 .post {
-    width: 500px;
+    width: {select:postwidth};
     float: center;
     background-color: {color:postbackground};
     overflow: hidden;
@@ -282,7 +292,7 @@ max-width:100%;
 }
  
 iframe.photoset {
-width: 500px;
+    width: {select:postwidth};
 }
  
  
@@ -299,7 +309,7 @@ width: 500px;
  
 .sidelinks {
     margin-top: 10px;
-    font-family: {text:bodyfont}, sans-serif;
+    font-family: {select:bodyfont}, sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase;
     font-size: 11px;
@@ -342,7 +352,7 @@ width: 500px;
     width: 400px;
     text-align: left;
     padding-bottom: 15px;
-    font-family: {text:bodyfont}, sans-serif;
+    font-family: {select:bodyfont}, sans-serif;
     font-size: 16px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -373,7 +383,7 @@ width: 500px;
 #tagssection {
     margin-top: 5px;
     display:block;
-    font-family: {text:bodyfont}, sans-serif;
+    font-family: {select:bodyfont}, sans-serif;
     font-size: 11px;
     font-weight: 400;
     letter-spacing: 1px;
@@ -391,7 +401,7 @@ width: 500px;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0px;
-    font-family: {text:bodyfont}, sans-serif;
+    font-family: {select:bodyfont}, sans-serif;
     line-height: 150%;
     font-size: 12px;
     padding-top: 20px;
@@ -409,7 +419,7 @@ width: 500px;
 }
  
 #permalinkpage {
-    width:392px;
+    width:calc({select:postwidth} * 0.8);
     margin-bottom:2px;
     margin-top:13px;
     margin-left:1px;
@@ -436,7 +446,7 @@ h1 {
     text-align: center;
     line-height: 150%;
     font-weight: 700;
-    font-family: {text:bodyfont}, sans-serif;
+    font-family: {select:bodyfont}, sans-serif;
     font-size: 16px;
     padding-bottom: 10px;
     color:{color:title};
@@ -461,18 +471,17 @@ h1 a {
 }
  
 #source {
-    text-align: right;
+    text-align: center;
     padding-right: 0px;
     padding-top: 15px;
     padding-bottom: -5px;
-    font-style:bold;
 }
  
  
 /*ask posts*/
  
 #ask {
-    width: 370px;
+    width: calc({select:postwidth} * 0.8);
     font-size: 12px;
     padding: 15px;
     background: {color:light};
@@ -481,7 +490,7 @@ h1 a {
  
 #asker {
     margin-top: 15px;
-    font-family: {text:bodyfont}, sans-serif;
+    font-family: {select:bodyfont}, sans-serif;
     font-size: 12px;
     text-transform: uppercase;
     font-weight: 700;
@@ -506,10 +515,11 @@ h1 a {
     color:{color:title};
 }
  
-.tumblr_audio_player {width:300px;
-height:40px;
-border-left:8px solid white;  
-z-index:3;
+.tumblr_audio_player {
+    width:calc({select:postwidth} * 0.6);
+    height:40px;
+    border-left:8px solid white;  
+    z-index:3;
 }
 .player {
     width:30px;
@@ -537,12 +547,12 @@ z-index:3;
 }
 .audio_info {
     margin-top:1px;
-min-height:120px;
-font-style:italic;
-            }
+    min-height:120px;
+    font-style:italic;
+}
 .albumart img {
-    width:100px;
-    height:100px;
+    width:calc({select:postwidth} * 0.2);
+    height:calc({select:postwidth} * 0.2);
     z-index:1;
 }
 .audiodata {
@@ -556,7 +566,7 @@ font-style:italic;
     height: 100px;
     margin-left: 110px;
     text-align: left;
-    width: 380px;
+    width: calc(0.76 * {select:postwidth});
 }
  #track {
     font-weight: 700;
@@ -566,7 +576,7 @@ font-style:italic;
  
 /*permalink notes*/
 ol.notes {
-    width: 500px;
+    width: {select:postwidth};
     list-style-type: none;
     text-align: left;
     background: {color:background};
@@ -580,7 +590,7 @@ ol.notes li.note { padding:2%; }
 ol.notes li.note img.avatar{ width:0px; height:0px; }
 
 #notes {
-    width: 500px;
+    width: {select:postwidth};
 }
 
 #cool {
@@ -630,7 +640,7 @@ ol.notes li.note img.avatar{ width:0px; height:0px; }
  }
  
 #pagi {
-    width: 500px;
+    width: {select:postwidth};
     letter-spacing: 1px;
     text-transform: uppercase;
     padding-top: 10px;
@@ -693,7 +703,7 @@ ol.notes li.note img.avatar{ width:0px; height:0px; }
  
  
 {block:Photoset}
-{Photoset-500}
+{Photoset}
 {block:ifCaptions}
 {block:Caption}
     <span class="caption">{Caption}</span>
@@ -704,7 +714,9 @@ ol.notes li.note img.avatar{ width:0px; height:0px; }
 {block:Quote}
     <div class="quote">{Quote}</div>
 {block:Source}
-    <div id="source">—{Source}</div>
+<br>
+<center><i class="fa fa-ellipsis-h"></i></center>
+    <div id="source">{Source}</div>
 {/block:Source}
 {/block:Quote}
  
