@@ -9,7 +9,7 @@ theme by mechanise.tumblr.com
  
 <title>{Title}</title>
  
-<link rel="shortcut icon" href="http://media.tumblr.com/tumblr_ltv0dwQBF01r2nnw5.gif">
+<link rel="shortcut icon" href="{Favicon}">
 <link rel="alternate" type="application/rss+xml" href="{RSS}">
 {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
  
@@ -39,6 +39,8 @@ theme by mechanise.tumblr.com
 <meta name="text: link 5 title" content="link"/>
 <meta name="text: link 5" content="/"/>
  
+<meta name="if:captions" content="1"/>
+<meta name="if:tags" content="1"/>
 <meta name="if:link1" content="1"/>
 <meta name="if:link2" content="1"/>
 <meta name="if:link3" content="1"/>
@@ -578,6 +580,21 @@ ol.notes li.note img.avatar{ width:0px; height:0px; }
     width: 500px;
 }
 
+#cool {
+    position:fixed;
+    right:15px;
+    bottom:15px;
+}
+
+#cool a {
+    color: {color:bodytext}!important;
+    border:none;
+}
+
+#cool a:hover {
+    color: {color:link}!important;
+}
+
 .chat {
     font-family: 'Source Code Pro';
     color: {color:bodytext};
@@ -664,17 +681,21 @@ ol.notes li.note img.avatar{ width:0px; height:0px; }
  
 {block:Photo}<div class = "singlephoto">
 <center><a href="{Permalink}"><img src="{PhotoURL-HighRes}"></a></center></div>
+{block:ifCaptions}
 {block:Caption}
     <span class="caption">{Caption}</span>
 {/block:Caption}
+{/block:ifCaptions}
 {/block:Photo}
  
  
 {block:Photoset}
 {Photoset-500}
+{block:ifCaptions}
 {block:Caption}
     <span class="caption">{Caption}</span>
 {/block:Caption}
+{/block:ifCaptions}
 {/block:Photoset}
  
 {block:Quote}
@@ -718,15 +739,17 @@ ol.notes li.note img.avatar{ width:0px; height:0px; }
     {block:Artist}artist: {Artist}{/block:Artist}
     {block:album}<br>album: {album}{/block:album}
 </div>
+{block:ifCaptions}
 {block:Caption}
     <span class="caption">{Caption}</span>
 {/block:Caption}
+{/block:ifCaptions}
 {/block:Audio}
  
  
 {block:Video}
     {Video-500}
-{block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+{block:ifCaptions}{block:Caption}<span class="caption">{Caption}</span>{/block:Caption}{/block:ifCaptions}
 {/block:Video}
  
  
@@ -737,12 +760,16 @@ ol.notes li.note img.avatar{ width:0px; height:0px; }
  
  
 {block:date}
-    <div id="tagssection"><div id="datetime">&nbsp;&nbsp;<a href="{Permalink}" title = "{TimeAgo}">{DayOfMonth} {ShortMonth}, {Year}</a>&nbsp;&nbsp;&nbsp;&nbsp;{block:NoteCount}<a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
+    <div id="tagssection">
+    <div id="datetime">&nbsp;&nbsp;<a href="{Permalink}" title = "{TimeAgo}">{DayOfMonth} {ShortMonth}, {Year}</a>&nbsp;&nbsp;&nbsp;&nbsp;{block:NoteCount}<a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
 {block:RebloggedFrom}&nbsp;&nbsp;<a href = "{ReblogParentURL}" title = "{ReblogParentName}">{lang:Via}</a>&nbsp;&nbsp;<a href = "{ReblogRootURL}" title = "{ReblogRootName}">©</a>
 {/block:RebloggedFrom}
 </div>
     <br>
-    <div id="tags">{block:HasTags}{block:Tags}&nbsp;<a href="{TagURL}">#{Tag}</a>&nbsp;{/block:Tags}{/block:HasTags}</div></div>
+    {block:ifTags}
+    <div id="tags">{block:HasTags}{block:Tags}&nbsp;<a href="{TagURL}">#{Tag}</a>&nbsp;{/block:Tags}{/block:HasTags}</div>
+    {/block:ifTags}
+    </div>
 
 {/block:date}
  
@@ -785,6 +812,8 @@ width=”{LogoWidth}” height=”{LogoHeight}” alt=”{SourceTitle}” />
 </div></div>
  
 </center>
+ 
+ <div id="cool"><a href="http://mechanise.tumblr.com" title="credit"><i class="fa fa-diamond"></i></a></div>
  
 </body>
 </html>
