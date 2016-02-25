@@ -452,12 +452,24 @@ h1 {
     font-weight: 700;
     font-family: {select:titlefont}, sans-serif;
     font-size: 16px;
-    padding-bottom: 10px;
     color:{color:title};
 }
  
 h1 a {
     color:{color:title};
+    border:none!important;
+    transition:all .3s ease-out;
+    -webkit-transition:all .3s ease-out;
+    -moz-transition:all .3s ease-out;
+    -o-transition:all .3s ease-out;  
+}
+
+h1 a:hover {
+    color:{color:postbackground};
+    transition:all .3s ease-out;
+    -webkit-transition:all .3s ease-out;
+    -moz-transition:all .3s ease-out;
+    -o-transition:all .3s ease-out;  
 }
 
 h2 {
@@ -641,9 +653,8 @@ ol.notes li.note img.avatar{ width:0px; height:0px; }
  
  .link {
      background: {color:accent};
-     border-radius: 15px;
+     border-radius: 5px;
      margin-top: 0px;
-     padding-top: 3px;
  }
  
  .current_page {
