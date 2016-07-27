@@ -67,10 +67,13 @@ please don't remove credit
  
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
- 
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
- 
- <script type="text/javascript" src="http://static.tumblr.com/bmdsqsc/ogWm7q8w1/lazyload.js"></script>
+
+ <head>
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+     <script type="text/javascript" src="http://static.tumblr.com/bmdsqsc/ogWm7q8w1/lazyload.js"></script>
+     <script src ="http://static.tumblr.com/fwgzvyf/Oj1o08f6h/shythemes.vr.js"></script> <!-- credit to shythemes for the video resize code -->
+     
 <script type="text/javascript" charset="utf-8">
     var $j = jQuery.noConflict();
     $j(function() {
@@ -85,9 +88,6 @@ please don't remove credit
     });
 </script>
 
-
- 
-<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
  
 <script>
 (function($){
@@ -95,13 +95,13 @@ please don't remove credit
         $(document).tooltip({
             track:true
         });
+        
     });
 })(jQuery);
 
 </script>
- 
- 
-<head>
+
+
 <style type="text/css">
 
 .tmblr-lightbox {background:rgba(255,255,255, .7)!important;}
@@ -786,7 +786,9 @@ ol.notes li.note img.avatar{ width:0px; height:0px; }
  
  
 {block:Video}
-    {Video}
+<div class="video">
+    {Video-500}
+    </div>
 {block:ifCaptions}{block:Caption}<span class="caption">{Caption}</span>{/block:Caption}{/block:ifCaptions}
 {/block:Video}
  
